@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsx</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root">
+
+
+    </div>
+    <script type="text/babel">
+        // if we want to call a variable to take that as input in function
+        var age = 5;
+        var name = "world";
+           // here the null,undefined,boolean values will not display
+        let boolean = true;
+        //here we can use this to display boolean
+        const isMarried = false.toString();
+
+        // how to call func into a function
+        function sum(){
+            //here in jsx we need to return everything
+            let a= 10+5;
+           return a;
+        }
+
+        const header = <h2>JSX Expression</h2>
+
+const App = () =>(
+    <>
+    <h1>learn jsx {name}</h1>
+    {header}
+    <p>we will learn it within {age} </p>
+ <p>here the null,undefined,boolean values will not display{isMarried} </p>
+ <p> calling a function:{sum()}</p>
+    </>
+)
+
+ ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+<!-- 
+    // convert farenhite to celsius  -->
+
+    <!-- <script type="text/babel">
+
+        const App = () => {
+
+            const far = 12;
+
+            const convert = (far) =>{
+                const cel = (far-32)*(5/9);
+                return cel.toFixed(14);
+            }
+            const cell = convert(far);
+           
+            return(
+                <>
+                <h1>far to cel</h1>
+                <p>far = {far}</p>
+                <p>cell = {cell}</p>
+                </>
+            )
+            
+            
+            
+           
+        }
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+
+    </script> -->
+
+    
+</body>
+</html>
+
+
+

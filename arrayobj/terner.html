@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ternery </title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+// if we want to display the line according to the condition then we can use ternery operator condition?true:false if not either of the condition the by default true will return
+//and last truth first false or viceversa first true last false
+function App(){
+    let logIn = true;
+    let firstName = "Alexa";
+    let lastName = "Diaze";
+    return(
+    <>
+    <h1>Hello {logIn?"Alexa":"user"}! </h1>
+  {logIn &&   <p>"Hello ! welcome to the party"</p>}
+    <h1> hello {logIn ? lastName || firstName:"user"}</h1>
+    
+    </>
+    )
+}
+
+
+
+const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+    rootElement.render(<App />)
+
+    </script>
+    
+</body>
+</html>

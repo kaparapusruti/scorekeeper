@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrays&onj</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="root"></div>
+    <!-- <script type="text/babel">
+function App () {
+    let arr = [1,2,3,4,5,6];
+    const evenNumbers = numbers.filter(number => number % 2 === 0);
+    let obj = {
+        name:"sruti",
+        age:28
+    };
+    return(
+<>
+<h1>Arrays and Objects in JavaScript </h1>
+
+{arr.map((num) =><h2> {num}</h2> )}
+<h2> {arr}</h2>
+<h1>{evenNumbers}</h1>
+
+
+<h2>{obj.name}</h2>
+<h2>{obj.age}</h2>
+
+</>
+
+
+    )
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+        
+    </script> -->
+
+
+<!-- render using filter to display even nos from arrays  key is used to have unique no for each h3 used in react -->
+<!-- <script type="text/babel">
+    const App = () => {
+      const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      const evenNumbers = numbers.filter(number => number % 2 === 0);
+
+      return (
+        <>
+          <h1>ES6 Array Iteration Methods</h1>
+          {evenNumbers.map((num) => (
+            <h3 key={num}>{num}</h3>
+          ))}
+        </>
+      );
+    };
+
+    const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+    rootElement.render(<App />);
+  </script> -->
+
+
+
+
+<!-- 
+  render carr list -->
+  <script type="text/babel">
+
+    // render car list
+
+    const CarDetails = () => {
+      var car = ["BMW","AUDI","NEXA","BENZ"];
+
+      return (
+        <>
+          <h1>lIST OF CARS</h1>
+          <ul>
+            {car.map((car,index) => (
+                <li key = {index}>{car}</li>
+            ))}
+            
+            </ul>
+
+         
+        </>
+      );
+    };
+
+ 
+
+
+// <!-- render students details -->
+  
+    const StudentDetails = () => {
+     const student = [
+      {
+        name : " sruti",
+        age:28,
+        marks :85
+    
+      },
+
+       { name : " arjuna",
+        age:28,
+        marks :95
+     
+      },
+
+       { name : " karna",
+        age:28,
+        marks :100
+      
+      }];
+
+       
+      return (
+        <>
+          <h1>students details</h1>
+        <table classname = "tab">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Marks</th>
+                
+         </tr>
+         </thead>
+
+         <tbody>
+         {student.map((student, index) =>(
+            <tr key  = {index}>
+             
+                <td>{student.name}</td>
+                <td>{student.age}</td>
+                <td>{student.marks}</td>
+                
+                
+                </tr>
+      ))}
+          
+            </tbody>
+            
+            </table>
+         
+         
+        </>
+      )
+    }
+
+    // images
+    function CarsPage(){
+ let cars = [
+  {
+name:"BMW",
+average:10,
+img :"https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+},
+{
+name:"audi",
+average:10,
+img :"https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+},
+{
+name:"mercedes",
+average:10,
+img :"https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+}];
+
+return(
+  <>
+  <h1>cars Details</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Images</th>
+        <th>Name</th>
+        <th>average</th>
+        </tr>
+        </thead>
+
+{cars.map((car,index) =>{
+  return(
+  <tr key = {index}>
+    <td><img src = {car.img}/></td>
+    <td>{car.name}</td>
+    <td>{car.average}</td>
+    </tr>
+  )
+})}
+
+</table>
+</>
+
+)
+
+}
+
+    function App(){
+      let showCars = false;// if true show carspage if false show students details and car details
+      if(showCars){
+        return <CarsPage />
+      }
+      return (
+<>
+
+<StudentDetails />
+<CarDetails/>
+</>
+      )
+    }
+
+const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+    rootElement.render(<App />)
+
+  </script>
+</body>
+</html>

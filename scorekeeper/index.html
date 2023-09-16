@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score-Keeper</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="text/babel">
+
+let score = 0;
+    let wicket = 0;
+let hit = 0;
+    let ballwiseResult = [];
+
+function addwicket(){
+    
+    hit = "w";
+rootElement.render(<App/>);
+console.log(ballwiseResult);
+    }
+
+
+function addScore(num){
+
+// if u want to display the score in form
+hit = num;
+rootElement.render(<App/>);
+console.log(ballwiseResult);
+    }
+
+
+const ScoreButtons = () =>(
+    <div>
+    <button onClick={() =>addScore(0)}>0</button>
+    <button onClick={() =>addScore(1)}>1</button>
+    <button onClick={() =>addScore(2)}>2</button>
+    <button onClick={() =>addScore(3)}>3</button>
+    <button onClick={() =>addScore(4)}>4</button>
+    <button onClick={() =>addScore(5)}>5</button>
+    <button onClick={() =>addScore(6)}>6</button>
+    <button onClick ={addwicket}>Wicket</button>
+    </div>
+)
+
+const Result = () =>(
+    <div>
+        
+       { ballwiseResult.map((res,index)=> (
+        <>
+       { index % 6 === 0 ? <br/>:null}
+        
+        <span key = {index}>{res === 0 ? <strong>.</strong> : res}</span>&nbsp;&nbsp;</>))}
+        </div>
+)
+
+
+// it will stop reloading the page whenever we click on submit
+function handleSubmit(event){
+    event.preventDefault();
+    if(hit== 'w'){
+        wicket+=1;
+    }else{
+        score +=hit;
+    }
+
+
+
+    ballwiseResult.unshift(hit);
+    rootElement.render(<App/>);
+}
+
+const Form = () =>(
+<form onSubmit = {handleSubmit} >
+    <input value = {hit}/>
+    <input/> 
+    <button>submit</button>
+ </form>
+
+) 
+
+const App = () =>(
+    <>
+
+<h1>Score Keeper</h1>
+<h2>Score:{score}/{wicket}</h2>
+<ScoreButtons/>
+<Result/> 
+<br/>
+
+<Form/>
+<hr/>
+{ballwiseResult.map((res,index) =>(
+    <p key = {index}>{res}</p>
+))}
+</>
+    
+)
+const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+rootElement.render(<App/>);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
